@@ -1,0 +1,37 @@
+%Touque 5 #1
+for i : 0 .. 13
+    put i
+end for
+
+
+%Touque 5 #2
+var integer : int
+
+put "Please enter an integer."..
+get integer
+    put "Here is its times-table from 0 to 13:"
+for i : 0 .. 13
+    put i*integer
+end for
+
+
+%Touque 5 #4
+for i : 1 .. 15
+    colour(i)
+    put i
+end for
+
+
+%Touque 5 #7
+for i: 1 .. 21
+    for j: 1 .. i
+        put "*"..
+    end for
+    put " "
+end for
+
+
+%Touque 5 #8
+for i: 2 .. 40 by 2
+    put i**2
+end for
