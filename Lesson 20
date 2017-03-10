@@ -1,0 +1,148 @@
+%Question 1
+var answer : int := 0
+var x : int
+var n : int
+
+put "Please enter a value for x. " ..
+get x
+put "Please enter a value for n. " ..
+get n 
+for i : 1 .. n
+    answer += x**i
+end for
+put "The sums of X to the power of 1 to n, then +1 is equal to ",answer+1,"."
+
+
+%Question 2
+var even1, even2 : int
+
+put "Please enter 2 even numbers (separated with a space). "..
+get even1, even2
+if even1<even2 then
+    for i: even1 .. even2 by 2
+        put i," "..
+    end for
+elsif even1>even2 then
+    for decreasing count: even1 .. even2 by 2
+        put count," "..
+    end for
+end if
+
+
+%Question 3
+var number : int
+
+put "Please input a whole number. "..
+get number
+for i: 1 .. number
+    if number mod i = 0 then 
+        put number div i," "..
+     end if
+end for
+%Question 4A
+for i : 1 .. 8
+    put i ** 3, " " ..
+end for
+
+
+%Question 4B
+var total : int := 0
+
+for i: 1 .. 8
+    total += i**3
+end for
+put total
+
+
+%Question 4C
+var number : int
+
+put "Please input an integer. " ..
+get number
+for i : 1 .. number
+    put i ** 3, " " ..
+end for
+put "are cubes of 1 to the integer you inputted."
+
+
+%Question 4D
+var number1, number2 : int
+
+put "Please input the lowest integer whose cube you wish to display. " ..
+get number1
+put "Please input the highest integer whose cube you wish to display. "..
+get number2
+for i : number1 .. number2
+    put i ** 3, " " ..
+end for
+put "are cubes of integers you inputted."
+
+
+%Question 5
+var mark : int
+var over_70 : int := 0
+
+for i : 1 .. 10
+    put "Please enter a mark out of 100. " ..
+    get mark 
+    if mark >= 70 then
+        over_70 += 1
+    end if
+end for
+put over_70," of those marks were above 70%."
+
+
+%Question 6
+var temperature : real
+
+loop
+    put "Please input a temperature in celsius. " ..
+    get temperature
+    exit when temperature > 30
+end loop
+put "Wow, that's hot."
+
+
+%Question 7
+var average : real := 0
+var number1, number2 : real
+
+loop
+    put "Please enter two numbers (separated with a space). " ..
+    get number1, number2
+    exit when number1 = 0 and number2 = 0
+    put "The average of those two numbers is ",(number1 + number2) / 2 : 0 : 1
+end loop
+put "Thank you for using our program."
+
+
+%Question 8
+const JULIA := 375
+const MAX := 560
+var julia_total : real := 300
+var max_total : real := 280
+var year : int := 0
+
+loop
+    year += 1
+    max_total += MAX
+    put "Max has $", max_total, " after ", year, " year."
+    julia_total += JULIA
+    exit when max_total >= julia_total
+end loop
+put "It takes Max ", year, " year to have more money in his account than Julia."
+
+
+%Question 9
+var number1, number2 : int
+var sum : int := 0
+
+put "Please enter two integers, the first one being lower than the second (separated with a space). "..
+get number1, number2
+for i : number1 .. number2
+    sum += i
+end for
+put "The sum of the numbers between the two you inputted is ", sum, "."
+
+
+
