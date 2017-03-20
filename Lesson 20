@@ -117,21 +117,20 @@ put "Thank you for using our program."
 
 
 %Question 8
-const JULIA := 375
-const MAX := 560
-var julia_total : real := 300
-var max_total : real := 280
-var year : int := 0
+const JULIA_INTEREST := 0.0125
+const MAX_INTEREST := 0.02
+var julia_amount : real := 300
+var max_amount : real := 280
+var years : int := 0
 
 loop
-    year += 1
-    max_total += MAX
-    put "Max has $", max_total, " after ", year, " year."
-    julia_total += JULIA
-    exit when max_total >= julia_total
+    julia_amount += julia_amount * JULIA_INTEREST
+    max_amount += max_amount * MAX_INTEREST
+    years += 1
+    exit when max_amount > julia_amount
 end loop
-put "It takes Max ", year, " year to have more money in his account than Julia."
-
+put "In ",years," years, Max will have more money in his account than Julia."
+    
 
 %Question 9
 var number1, number2 : int
