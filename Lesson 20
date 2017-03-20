@@ -144,4 +144,20 @@ end for
 put "The sum of the numbers between the two you inputted is ", sum, "."
 
 
+%Question 10
+const GROWTHA := 0.03
+const GROWTHB := 0.02
+var countryA : real := 50000000
+var countryB : real := 70000000
+var years : real := 0
+
+loop
+    countryA += countryA * GROWTHA
+    countryB += countryB *GROWTHB
+    years += 1
+    exit when countryA > countryB
+end loop
+put "In ",years," years, Country A's population will surpass Country B's."
+
+
 
