@@ -1,0 +1,90 @@
+%A
+const LINES := 5
+
+for decreasing i : LINES .. 1
+    for j : 1 .. i
+        put "*"..
+    end for
+    put " "
+end for
+
+
+%B
+for decreasing i : 10 .. 2 by 2
+    for j : 1 .. i
+        put "*" ..
+    end for
+    put " "
+end for
+
+
+%C
+for i : 1 .. 8
+    for j : 1 .. 10
+        put "* "..
+    end for
+    put " "
+end for
+
+
+%D
+var rows : int 
+
+put "How many rows would you like? "..
+get rows
+for i : 1 .. rows
+    for j : 1 .. 10
+        put "* "..
+    end for
+    put " "
+end for
+
+
+
+%E
+for row : 1 .. 4 
+    for decreasing i : 3 .. row 
+        put " "..
+    end for
+        for j : 1 .. row + (row - 1)
+            put "$"..
+        end for
+    put " "
+end for
+
+
+%F
+for row : 1 .. 5
+    for decreasing i : 4 .. row
+        put " " ..
+    end for
+    for j : 1 .. row
+        put row ..
+    end for
+    put " "
+end for
+
+
+%G
+for row : 1 .. 5
+    for decreasing i : 4 .. row 
+        put " " ..
+    end for
+    for j : 1 .. row
+        put j ..
+    end for
+    for decreasing j : row - 1 .. 1
+        put j ..
+    end for
+    put ""
+end for
+
+
+%H
+for row : 1 .. 9
+    for i : row .. row * 9 by row 
+        put i : 3  ..
+    end for
+    put " "
+end for
+    
