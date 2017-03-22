@@ -1,0 +1,151 @@
+%Question 1
+var number : int
+
+put "Please enter a target number. " ..
+get number
+for i : 1 .. number
+    if i mod 4 = 0 then
+        put i
+    end if    
+end for
+
+
+%Questions 2
+var amount_of_items : int := 0
+var average : real := 0
+var total_weight : real := 0
+var weight : real
+
+loop
+    put "Please enter a package weight in kg. " ..
+    get weight
+    exit when weight = 0
+    total_weight += weight
+    amount_of_items += 1
+end loop
+average += total_weight / amount_of_items
+put "The average weight those packages is ", average : 0 : 2, " kg."
+
+
+%Questions 3
+var cm_inches : string
+var height : real 
+var new_height : real := 0
+const FEET := 12
+const INCHES := 2.5
+const METERS := 100
+
+put "Please enter a height. " ..
+get height
+put "Is that in centimeters or inches? "..
+get cm_inches : *
+case cm_inches of 
+    label "centimeters", "cm", "Centimeters" :
+        new_height += height / INCHES
+        put "You are ", new_height," inches tall."
+        put "Another way to say that is ", new_height div FEET," feet, ", ceil (new_height mod FEET)," inches."
+    label "inches", "Inches" :
+        new_height += height * INCHES
+        put "You are ", new_height," cm tall. "
+        put "Another way to say that is ", new_height div METERS," meter and ", new_height mod METERS, " cm."
+    label : put "Please enter either 'centimeters' or 'inches'."
+end case
+
+
+%Question 4
+var number : int
+const TIMESTABLE := 10
+
+put "Please enter an integer. " ..
+get number
+for i : 1 .. TIMESTABLE
+    put number * i, " " ..
+end for
+
+OR
+
+var number : int
+const TIMESTABLE := 10
+
+loop
+    put "Please enter an integer. " ..
+    get number
+    exit when number < 0
+    for row : 1 .. TIMESTABLE
+        put row, " " ..
+        put row * number, " " : 2 
+    end for
+    put " "
+end loop
+
+
+%Question 5
+var angle1, angle2, angle3 : real
+
+put "Please input three random angles of a triangle (seperate with a space) " ..
+get angle1, angle2, angle3
+if angle1 < 180 and angle1 > 0 and angle2 < 180 and angle2 > 0 and angle3 < 180 and angle3 > 0 and angle1 + angle2 + angle3 = 180 then
+    if angle1 = angle2 and angle2 = angle3 then
+        put "The triangle is equilateral."
+    elsif angle1 = angle2 or angle1 = angle3 or angle2 = angle3 then
+        put "The triangle is isosceles."
+    elsif angle1 not= angle2 and angle1 not= angle3 and angle2 not= angle3 then
+        put "The triangle is scalene."
+    end if
+else
+    put "Please enter valid angles between 0 and 180, and they must add up to 180."
+end if
+
+
+%Questions 6
+var car_speed : int
+var speed_limit : int
+
+loop
+    put "Please enter the speed limit in km/h. " ..
+    get speed_limit
+    exit when speed_limit <= 0
+    put "Please enter the recorded speed of your car. " ..
+    get car_speed
+    if car_speed <= speed_limit then
+        put "Congratulations, you are within the speed limit!"
+    elsif car_speed > speed_limit then
+        if car_speed <= speed_limit + 20 then
+            put "You are speeding and your fine is $100."
+        elsif car_speed <= speed_limit + 30 then
+            put "You are speeding and your fine is $270."
+        elsif car_speed >= speed_limit + 31 then
+            put "You are speeding and your fine is $500."
+        end if
+    end if
+end loop
+put "Thanks for using our program. Drive safely!"
+
+
+%Question 7
+var weight1, weight2, weight3 : real
+
+put "In the story Goldilocks and the Three Bears, each bear had a bowl of porridge. Please enter a random weight for each bowl (seperate with a space) " ..
+get weight1, weight2, weight3
+if weight1 < 100 and weight 1 > 0 and weight2 < 100 and weight2 > 0 and weight3 < 100 and weight3 > 0 then
+    if weight1 > weight2 and weight1 < weight3 then
+        put "The weight of Mama Bear's bowl is ", weight1, "."
+    elsif weight1 > weight3 and weight1 < weight2 then
+        put "The weight of Mama Bear's bowl is ", weight1, "."
+    elsif weight2 > weight1 and weight2 < weight3 then
+        put "The weight of Mama Bear's bowl is ", weight2, "."
+    elsif weight2 > weight3 and weight2 < weight1 then
+        put "The weight of Mama Bear's bowl is ", weight2, "."
+    elsif weight3 > weight1 and weight3 < weight2 then
+        put "The weight of Mama Bear's bowl is ", weight3, "."
+    elsif weight3 > weight2 and weight3 < weight1 then
+        put "The weight of Mama Bear's bowl is ", weight3, "."
+    end if
+else
+    put "Please enter 3 different weights less than 100 and greater than 0."
+end if
+
+
+
+
+
