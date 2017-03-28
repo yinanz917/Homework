@@ -1,0 +1,111 @@
+%Touque 7
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    if index ("aeiouAEIOU", word (i)) not= 0 then
+        number := ord (word (i)) - 32
+        new_word += chr (number)
+    else
+        new_word += word (i)
+    end if
+end for
+put new_word
+
+
+%Touque 8
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    if index ("aeiouAEIOU", word (i)) = 0 then
+        number := ord (word (i)) - 32
+        new_word += chr (number)
+    else
+        new_word += word (i)
+    end if
+end for
+put new_word
+
+
+%Touque 9
+var new_word : string := " "
+var word : string
+const A := "a"
+const E := "e"
+const I := "i"
+const O := "o"
+const U := "u"
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    if index ("aeiouAEIOU", word (i)) not= 0 then
+        if word (i) = A then
+            new_word += E
+        elsif word (i) = E then
+            new_word += I
+        elsif word (i) = I then
+            new_word += O
+        elsif word (i) = O then
+            new_word += U 
+        elsif word (i) = U then
+            new_word += A
+        end if           
+    else
+        new_word += word (i)
+    end if
+end for
+put new_word
+
+
+%Touque 10
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    if word (i) >= "a" and word (i) <= "z" then
+        number := ord (word (i)) - ord ("a") + ord ("A")
+        new_word += chr (number)
+    elsif word (i) >= "A" and word (i) <= "Z" then
+        number := ord (word(i)) + (ord ("z") - ord ("Z"))
+        new_word += chr (number)
+    end if
+end for
+put new_word
+
+
+%Touque 11
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    if i mod 2 = 0 then
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+            new_word += word (i)
+        end if
+    elsif word (i) >= "A" and word (i) <= "Z" then
+        number := ord (word (i)) + (ord ("z") - ord ("Z"))
+        new_word += chr (number)
+    else
+        new_word += word (i)
+    end if
+end for
+put new_word
+
+
