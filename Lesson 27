@@ -1,0 +1,518 @@
+%Touque 12
+var new_word : string := " "
+var number : int
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    if i mod 2 = 0 then
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+            new_word += word (i)
+        end if
+    else
+        if word (i) >= "a" and word (i) <= "z" then
+            new_word += word (i)
+        else
+            number := ord (word (i)) + ord ("z") - ord ("Z")
+            new_word += chr (number)
+        end if
+    end if
+end for
+put new_word
+
+
+%Touque 13
+var first_half : int := 0
+var new_word : string := " "
+var number : int
+var word : string
+
+put "Please enter a word: " ..
+get word
+if length (word) mod 2 = 0 then % if word has even number of letters
+    first_half += length (word) div 2
+    for i : 1 .. first_half % first half
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+                new_word += word (i)
+        end if
+    end for
+    for i : first_half + 1 .. length (word) %second half
+        if word (i) >= "a" and word (i) <= "z" then
+            new_word += word (i)
+        else
+            number := ord (word (i)) + ord ("z") - ord ("Z")
+            new_word += chr (number)
+        end if
+    end for
+elsif length (word) mod 2 not= 0 then     % if word has odd number of letters
+    first_half += ceil (length (word) / 2) - 1
+   for i : 1 .. first_half % first half
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+                new_word += word (i)
+        end if
+    end for
+    for i : first_half + 1 .. length (word) %second half
+        if word (i) >= "a" and word (i) <= "z" then
+            new_word += word (i)
+        else
+            number := ord (word (i)) + (ord ("z") - ord ("Z"))
+            new_word += chr (number)
+        end if
+    end for
+end if
+put new_word
+
+
+%Touque 14
+var first_half : int := 0
+var new_word : string := " "
+var number : int
+var word : string
+
+put "Please enter a word: " ..
+get word
+if length (word) mod 2 = 0 then % if word has even number of letters
+    first_half += length (word) div 2
+    for i : 1 .. first_half % first half
+        if word (i) >= "a" and word (i) <= "z" then
+            new_word += word (i)
+        else
+            number := ord (word (i)) + ord ("z") - ord ("Z")
+            new_word += chr (number)
+        end if
+    end for
+    for i : first_half + 1 .. length (word) %second half
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+            new_word += word (i)
+        end if
+    end for
+elsif length (word) mod 2 not= 0 then     % if word has odd number of letters
+    first_half += ceil (length (word) / 2) - 1
+    for i : 1 .. first_half  % first half
+        if word (i) >= "a" and word (i) <= "z" then
+            new_word += word (i)
+        else
+            number := ord (word (i)) + ord ("z") - ord ("Z")
+            new_word += chr (number)
+        end if
+    end for
+    for i : first_half + 1 .. length (word) %second half
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+            new_word += word (i)
+        end if
+    end for
+end if
+put new_word
+
+
+%Touque 15
+var first_half : int := 0
+var new_word : string := " "
+var number : int
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word) - 1
+    put word (i), " " ..
+end for
+put word (*)
+
+
+%Touque 16
+var first_half : int := 0
+var new_word : string := " "
+var number : int
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word) - 1
+    put word (i) ..
+        for j : 1 .. i
+            put " " ..
+        end for
+end for
+put word (*)
+
+
+%Touque 17
+var first_half : int := 0
+var new_word : string := " "
+var number : int
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word) - 1
+    put word (i) ..
+        for decreasing j : length (word) - 1 .. i
+            put " " ..
+        end for
+end for
+put word (*)
+
+
+%Question 1
+var word : string
+var first_word : string := " "
+
+put "Please enter 'done' to exit the program."
+put "Please enter a word: " ..
+get word
+first_word := word
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    if word < first_word then
+        first_word := word
+    end if
+end loop
+put "The word '", first_word,"' is alphabetically first."
+
+
+%Question 1A
+var word : string
+var first_word : string := " "
+
+put "Please enter 'done' to exit the program."
+put "Please enter a word: " ..
+get word
+first_word := word
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    if word > first_word then
+        first_word := word
+    end if
+end loop
+put "The word '", first_word,"' is alphabetically last."
+
+
+%Question 1B
+var word : string
+var first_word : string := " "
+
+put "Please enter 'done' to exit the program."
+put "Please enter a word: " ..
+get word
+first_word := word
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    if length (word) = 7 then
+        if word < first_word then
+            first_word := word
+        end if
+    end if
+end loop
+put "The 7 letter word '", first_word, "' is alphabetically first."
+
+
+%Question 1C
+var word : string
+var first_word : string := " "
+
+put "Please enter 'done' to exit the program."
+put "Please enter a word: " ..
+get word
+first_word := word
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    if length (word) = 3 then
+        if word > first_word then
+            first_word := word
+        end if
+    end if
+end loop
+put "The 3 letter word '", first_word, "' is alphabetically last."
+
+
+%Question 1D
+var length_of_word : int 
+var longest_word : string := " "
+var word : string
+
+put "Please enter 'done' to exit the program."
+put "Please enter a word: " ..
+get word
+longest_word := word
+length_of_word := length (word)
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    if length (word) > length_of_word then
+        longest_word := word
+        length_of_word := length (word)
+    end if
+end loop
+put "The longest word you entered was '", longest_word,"'."
+
+
+%Question 1E
+var length_of_word : int 
+var shortest_word : string := " "
+var word : string
+
+put "Please enter 'done' to exit the program."
+put "Please enter a word: " ..
+get word
+shortest_word := word
+length_of_word := length (word)
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    if length (word) < length_of_word then
+        shortest_word := word
+        length_of_word := length (word)
+    end if
+end loop
+put "The longest word you entered was '", shortest_word,"'."
+
+
+%Question 1F
+var amount_of_words : int := 0
+var average : real := 0
+var total_length : int := 0
+var word : string
+
+put "Please enter 'done' to exit the program."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    total_length += length (word)
+    amount_of_words += 1
+end loop
+average += total_length / amount_of_words
+put "The average length of the words entered is ", ceil (average), " letters."
+
+
+%Question 2
+var letter : char
+var new_word : string := " "
+var word : string
+
+put "To exit the program, please enter 'done'."
+loop
+    new_word := " "
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    put "Please enter the letter you would like removed (lowercase): " ..
+    get letter
+    for i : 1 .. length (word)
+        if index (word (i), letter) = 0 then
+            new_word += word (i)
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 2A
+var letter : char
+var new_word : string := " "
+var word : string
+
+put "To exit the program, please enter 'done'."
+put "Please enter letter would you like removed (lowercase): " ..
+get letter
+loop
+    new_word := " "
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done" or word = "Done"
+    for i : 1 .. length (word)
+        if index (word (i), letter) = 0 then
+            new_word += word (i)
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 2B 
+var letter : string
+var new_word : string := " "
+var word : string
+
+put "To exit the program, please enter '123'."
+put "Please enter a word: " ..
+get word
+loop
+    put "What letter would you like removed? (lowercase): " ..
+    get letter
+    exit when letter = "123"
+    for i : 1 .. length (word)
+        if index (word (i), letter) = 0 then
+            new_word += word (i)
+        end if
+    end for
+    put new_word
+    new_word := " "
+end loop
+    
+
+%Question 3
+var new_word : string := " "
+var word : string
+
+put "To exit the program please enter 'done'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = 'done' or word = 'Done'
+    new_word := " "
+    for i : 1 .. length (word)
+        if index ("aeiouAEIOU", word (i)) not= 0 then
+            new_word += word (i)
+        else
+            new_word += "%"
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 3A
+var new_word : string := " "
+var word : string
+
+put "To exit the program please enter 'done'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = 'done' or word = 'Done'
+    new_word := " "
+    for i : 1 .. length (word)
+        if index (word (i), "r") = 0 then
+            new_word += word (i)
+        else
+            new_word += "R"
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 3B
+var new_word : string := " "
+var word : string
+
+put "To exit the program please enter 'done'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = 'done' or word = 'Done'
+    new_word := " "
+    for i : 1 .. length (word)
+        if word (i) <= "d" then
+            new_word += "*"
+        else
+            new_word += word (i)
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 3C (FOLLOWING)
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "To exit the program please enter 'done'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = 'done' or word = 'Done'
+    new_word := " "
+    for i : 1 .. length (word)
+        if word (i) not= "z" then
+            number := ord (word (i))
+            new_word += chr (number + 1)
+        else
+            new_word += "a"
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 3C (PREVIOUS)
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "To exit the program please enter 'done'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = 'done' or word = 'Done'
+    new_word := " "
+    for i : 1 .. length (word)
+        if word (i) not= "a" then
+            number := ord (word (i))
+            new_word += chr (number - 1)
+        else
+            new_word += "z"
+        end if
+    end for
+    put new_word
+end loop
+
+
+%Question 3D
+var new_word : string := " "
+var number : int := 0
+var word : string
+
+put "To exit the program please enter 'done'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = 'done' or word = 'Done'
+    new_word := " "
+    for i : 1 .. length (word)
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        elsif word (i) >= "A" and word (i) <= "Z" then
+            number := ord (word (i)) + (ord ("z") - ord ("Z"))
+            new_word += chr (number)            
+        end if
+    end for
+    put new_word
+end loop
+
+
+
+
+
+
+
+
