@@ -1,0 +1,116 @@
+%Question 1
+var number_of_letters : int := 0
+var word : string
+
+for i : 1 .. 5
+    randint (number_of_letters, 1, 10)
+    put "Please enter a word that is ", number_of_letters, " characters long: " ..
+    get word
+    number_of_letters := 0
+end for
+
+
+%Question 1A
+var number_of_letters : int := 0
+var word : string
+
+for i : 1 .. 5
+    randint (number_of_letters, 1, 10)
+    put "Please enter a word that is ", number_of_letters, " characters long: " ..
+    get word
+    if length (word) not= number_of_letters then
+        put "Sorry, the amount of characters has to be ", number_of_letters,"."
+    end if
+    number_of_letters := 0
+end for
+
+
+%Question 1B
+var number_of_letters : int := 0
+var word : string
+
+for i : 1 .. 5
+    randint (number_of_letters, 1, 10)
+    put "Please enter a word that is ", number_of_letters, " characters long: " ..
+    get word
+    if length (word) not= number_of_letters then
+        put "Sorry, the amount of characters has to be ", number_of_letters, "."
+        loop
+            put "Please enter a word with ", number_of_letters," characters: " ..
+            get word
+            exit when length (word) = number_of_letters
+        end loop
+    end if
+    number_of_letters := 0
+end for
+
+
+%Question 2
+var number : int := 0
+
+for i : 1 .. 10
+    randint (number, 50, 60)
+    put number," " ..
+    number := 0
+end for
+
+
+%Question 3A
+var number : int := 0
+var one, two, three, four, five, six : int := 0
+
+for i : 1 .. 20
+    randint (number, 1, 6)
+    case number of
+        label 1 :
+            one += 1
+        label 2 :
+            two += 1
+        label 3 :
+            three += 1
+        label 4 :
+            four += 1
+        label 5 :
+            five += 1
+        label 6 :
+            six += 1
+    end case
+end for
+
+put "You rolled ", one, " one's, ", two, " two's, ", three, " three's, ", four, " four's, ", five, " five's and ", six, " six's."
+
+
+%Question 4
+var guesses : int := 0
+var number : int := 0
+var user_input : int := 0
+
+randint (number, 1, 100)
+put "Guess my number between 1 and 100: " ..
+get user_input
+guesses += 1
+loop
+    exit when user_input = number
+    if user_input > number then
+        colour (red)
+        put "Lower"
+    elsif user_input < number then
+        colour (red)
+        put "Higher"
+    end if
+    colour (black)
+    put "Guess my number between 1 and 100: " ..
+    get user_input
+    guesses += 1
+end loop
+
+if guesses <= 10 then
+    put "CONGRATULATIONS! YOU GUESSED THE NUMBER UNDER 10 GUESSES! YOU ARE VERY SMART!"
+elsif guesses >= 10 then
+    put "CONGRATULATIONS! YOU GUESSED THE NUMBER USING MORE THAN 10 GUESSES, TRY HARDER!"
+end if
+
+
+
+
+
