@@ -1,0 +1,198 @@
+%Question 1
+var largest : int := 100
+var middle : int
+var number1, number2, number3 : int
+var smallest : int := 200
+
+randint (number1, 100, 200)
+randint (number2, 100, 200)
+randint (number3, 100, 200)
+largest := number1
+if number2 > largest then
+    largest := number2
+    smallest := number1
+    if number3 < smallest then
+        smallest := number3
+        middle := number1
+    elsif number3 > smallest and number3 < largest then
+        middle := number3
+    elsif number3 > largest then
+        largest := number3
+        middle := number2
+        smallest := number1
+    end if
+elsif number2 < largest then
+    smallest := number2
+    if number3 < smallest then
+        smallest := number3
+        middle := number2
+    elsif number3 > smallest and number3 < largest then
+        middle := number3
+    elsif number3 > largest then
+        largest := number3
+        middle := number1
+        smallest := number2
+    end if
+end if
+
+put smallest
+put middle
+put largest
+
+
+%Question 1(var) 
+var largest : real 
+var middle : real
+var number1, number2, number3 : real 
+var smallest : real
+
+rand (number1)
+number1 *= 50 
+number1 += 50
+rand (number2)
+number2 *= 50
+number2 += 50
+rand (number3)
+number3 *= 50
+number3 += 50
+largest := number1
+if number2 > largest then
+    largest := number2
+    smallest := number1
+    if number3 < smallest then
+        smallest := number3
+        middle := number1
+    elsif number3 > smallest and number3 < largest then
+        middle := number3
+    elsif number3 > largest then
+        largest := number3
+        middle := number2
+        smallest := number1
+    end if
+elsif number2 < largest then
+    smallest := number2
+    if number3 < smallest then
+        smallest := number3
+        middle := number2
+    elsif number3 > smallest and number3 < largest then
+        middle := number3
+    elsif number3 > largest then
+        largest := number3
+        middle := number1
+        smallest := number2
+    end if
+end if
+
+put smallest : 0 : 2
+put middle : 0 : 2
+put largest : 0 : 2
+
+
+%Question 2
+var number : int 
+var amount_of_numbers : int := 0
+
+loop
+    randint (number, 1, 100)
+    if number < 90 then
+        amount_of_numbers += 1
+    end if
+    put number
+    exit when number >= 90
+    number := 0
+end loop
+
+put "You got ", amount_of_numbers," number(s) before you got one in the 90's."
+
+
+%Question 2 (var)
+var number : int 
+var amount_of_numbers : int := 0
+
+loop
+    randint (number, 1, 100)
+    if number <= 60 or number >= 69 then
+        amount_of_numbers += 1
+    end if
+    put number
+    exit when number >= 60 and number <= 69
+    number := 0
+end loop
+
+put "You got ", amount_of_numbers," number(s) before you got one in the 60's."
+
+
+%Question 3
+var number1, number2 : int 
+var number_of_doubles : int := 0
+
+for i : 1 .. 30
+    randint (number1, 1, 6)
+    randint (number2, 1, 6)
+    put number1," and ", number2
+    if number1 = number2 and number2 = number1 then
+        number_of_doubles += 1
+    end if
+    number1 := 0
+    number2 := 0
+end for
+put "You rolled ", number_of_doubles ," doubles."
+
+
+%Question 3 (var)
+var number1, number2 : int 
+var odd_sum : int := 0
+
+for i : 1 .. 30
+    randint (number1, 1, 6)
+    randint (number2, 1, 6)
+    put number1," and ", number2
+    if (number1 + number2) mod 2 not= 0 then
+        odd_sum+= 1
+    end if
+    number1 := 0
+    number2 := 0
+end for
+put "You rolled ", odd_sum," sums that were odd."
+
+
+%Question 4
+var die1, die2 : int 
+var rolls : int := 0
+
+loop
+    randint (die1, 1, 6)
+    randint (die2, 1, 6)
+    put die1, " + ", die2
+    if die1 + die2 not= 7 then
+        rolls += 1
+    end if
+    exit when die1 + die2 = 7
+    die1 := 0
+    die2 := 0
+end loop
+put "You rolled the dice ", rolls," times before you got the seven."
+
+
+%Question 4 (var)
+var die1, die2 : int 
+var rolls : int := 0
+
+loop
+    randint (die1, 1, 6)
+    randint (die2, 1, 6)
+    put die1, ", ", die2
+    if die1 not= 1 or die2 not= 1 then
+        rolls += 1
+    end if
+    exit when die1 = 1 and die2 = 1
+    die1 := 0
+    die2 := 0
+end loop
+put "You rolled the dice ", rolls," times before you got snake eyes."
+
+
+
+
+
+
