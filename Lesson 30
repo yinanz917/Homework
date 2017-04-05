@@ -1,0 +1,277 @@
+%Textbook Q1
+var average_characters : real := 0
+var total_characters : int := 0
+var word : string
+const NUMBER_OF_WORDS := 10
+
+for i : 1 .. NUMBER_OF_WORDS
+    put "Please enter a word: " ..
+    get word
+    total_characters += length (word)
+end for
+
+average_characters += total_characters / NUMBER_OF_WORDS
+put "The average amount of characters per word is ", ceil (average_characters), "."
+
+
+%Textbook Q2
+var word : string
+
+put "To exit the program, please enter 'exit'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "exit" or word = "EXIT"
+    if length (word) >= 2 then
+        put word (1) ..
+        put word (*)
+    elsif length (word)< 2 then
+        put "You entered a word that has ", length (word)," character(s)."
+    end if
+end loop
+ 
+
+%Textbook Q3
+var amount_of_asterisks : int 
+
+put "Enter a negative number to stop."
+loop
+    put "How asterisks do you want? " ..
+    get amount_of_asterisks
+    exit when amount_of_asterisks <= 0
+    for i  : 1 .. amount_of_asterisks
+        put "* " ..
+    end for
+    put " "
+end loop
+
+
+%Textbook Q5
+var ascii_value : int
+var new_word : string := " "
+var word : string
+
+put "Enter 'stop' to exit the program."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "stop" or word = "STOP"
+    for i : 1 .. length (word)
+        if word (i) not= "z" then
+            ascii_value := ord (word (i)) + 1
+            new_word += chr (ascii_value)
+        elsif word (i) = "z" then
+            ascii_value := 97
+            new_word += chr (ascii_value)
+        end if
+    end for
+    put new_word
+    new_word := " "
+end loop
+
+
+%Textbook Q6
+var new_word : string := " "
+var word : string
+
+put "Enter 'exit' to stop the program."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "exit" or word = "EXIT"
+    for decreasing i : length (word) .. 1
+        new_word += word (i)
+    end for
+    put new_word
+    new_word := " "
+end loop
+        
+
+%Textbook Q7
+var half : int := 0
+var word : string
+
+put "To end the program, please enter 'exit'."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "exit" or word = "EXIT"
+    if length (word) mod 2 not= 0 then
+        half := ceil (length (word) div 2) + 1
+        put "The middle letter is ", word (half), "."
+    else
+        put "This word has an even amount of letters."
+    end if
+end loop
+
+
+%Textbook Q8
+var letter : char
+var new_word2 : string := " "
+var new_word3 : string := " "
+var number : int
+var replacement : string
+var total_amount_letters : int := 0
+var user_input : string
+var word : string
+
+loop
+    put "Menu"
+    put "1. Count a pattern"
+    put "2. Eliminate a pattern"
+    put "3. Substitute a pattern"
+    put "4. Exit"
+    put "Which number would you like to happen? " ..
+    get user_input
+    if strintok (user_input) = true then
+        number := strint (user_input)
+    else
+        loop
+            put "Please enter a number 1 to 4: " ..
+            get user_input
+            exit when strintok (user_input) = true
+        end loop
+        number := strint (user_input)
+    end if
+    exit when number = 4
+    case number of
+        label 1 :
+            put "Please enter a word: " ..
+            get word
+            put "Please enter a letter that is found in that word: " ..
+            get letter
+            for i : 1 .. length (word)
+                if index (word (i), letter) not= 0 then
+                    total_amount_letters += 1
+                end if
+            end for
+            put "There are ", total_amount_letters, " ", letter, "'s in the word '", word, "'."
+            put " "
+            total_amount_letters := 0
+        label 2 :
+            put "Please enter a word: " ..
+            get word
+            put "Please enter a letter that is found in that word: " ..
+            get letter
+            for i : 1 .. length (word)
+                if index (word (i), letter) = 0 then
+                    new_word2 += word (i)
+                end if
+            end for
+            put new_word2
+            put " "
+            new_word2 := " "
+        label 3 :
+            put "Please enter a word: " ..
+            get word
+            put "Please enter a letter found in that word: " ..
+            get letter
+            put "Please enter a character you would like to replace that with: " ..
+            get replacement
+            for i : 1 .. length (word)
+                if index (word (i), letter) not= 0 then
+                    new_word3 += replacement
+                elsif index (word (i), letter) = 0 then
+                    new_word3 += word (i)
+                end if
+            end for
+            put new_word3
+            put " "
+            new_word3 := " "
+    end case
+end loop
+
+
+%Textbook Q10
+var user_input : string
+
+put "To exit the program, please enter 'exit'."
+loop
+    put "Please enter a string of random characters: " ..
+    get user_input
+    exit when user_input = "exit"
+    for i : 1 .. length (user_input)
+        if strintok (user_input (i)) = true then
+            put user_input (i), " is a number."
+        elsif index ("aeiouAEIOU", user_input (i)) not= 0 then
+            put user_input (i), " is a vowel."
+        elsif index ("aeiousAEIOU", user_input (i)) = 0 then
+            if index ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", user_input (i)) not= 0 then
+                put user_input (i), " is a consonant."
+            else
+                put user_input (i), " is any other character."
+            end if
+        end if
+    end for
+    put " "
+end loop
+
+
+%Textbook Q11
+var characters : string := " "
+var consonants : string := " "
+var numbers : string := " "
+var user_input : string
+var vowels : string := " "
+
+put "To exit the program, please enter 'exit'."
+loop
+    put "Please enter a string of random characters: " ..
+    get user_input
+    exit when user_input = "exit"
+    for i : 1 .. length (user_input)
+        if strintok (user_input (i)) = true then
+            numbers += user_input (i)
+        elsif index ("aeiouAEIOU", user_input (i)) not= 0 then
+            vowels += user_input (i)
+        elsif index ("aeiousAEIOU", user_input (i)) = 0 then
+            if index ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", user_input (i)) not= 0 then
+                consonants += user_input (i)
+            else
+                characters += user_input (i)
+            end if
+        end if
+    end for
+    put "Numbers - ", numbers
+    put "Vowels - ", vowels
+    put "Consonants - ", consonants
+    put "Any other character - ", characters
+    put " "
+end loop
+
+
+%Textbook Q13
+var letter : string
+var new_word : string := " "
+var replacement : string
+var word : string
+
+put "To exit the program, please enter 'done'."
+loop
+    put "Please enter a word (lowercase): " ..
+    get word
+    exit when word = "done"
+    put "Please enter a letter that is found in that word(lowercase): " ..
+    get letter
+    if index (word, letter) = 0 then
+        loop
+            put "Please enter a letter that is found in that word: " ..
+            get letter
+            exit when index (word, letter) not= 0
+        end loop
+    end if
+    put "Please enter a replacement letter (lowercase): " ..
+    get replacement
+    for i : 1 .. length (word)
+        if index (word (i), letter) not= 0 then
+            new_word += replacement
+        elsif index (word (i), letter) = 0 then
+            new_word += word (i)
+        end if
+    end for
+    put "The new word is ", new_word, "."
+    put " "
+    new_word := " "
+end loop
+
+
