@@ -1,0 +1,66 @@
+%Question 1
+%Subtract 5 function
+function subtract_five ( number : real ) : real
+    var new_number : real := 0
+    new_number += number - 5
+    result new_number
+end subtract_five
+
+%main program
+var number : real
+put "Please enter a number: " ..
+get number
+put "This number subtract 5 is ", subtract_five (number), "."
+
+
+%Question 2
+%Function
+function factorial_of_integer (integer : int) : int
+    var factorial : int := 1
+    for i : 1 .. integer
+        factorial *= i
+    end for
+    result factorial
+end factorial_of_integer
+
+%Main program
+var integer : int
+put "Enter 0 to exit the program."
+loop
+    put "Please enter a positive integer: " ..
+    get integer
+    exit when integer = 0
+    if integer > 0 then
+        put "The factorial of that integer is ", factorial_of_integer (integer), "."
+    elsif integer < 0 then
+        loop
+            put "Please enter a POSITIVE integer: " ..
+            get integer
+            exit when integer > 0
+        end loop
+        put "The factorial of that integer is ", factorial_of_integer (integer), "."
+    end if
+end loop
+
+
+%Question 3
+%Function
+function reversed_letter_order (word : string) : string
+    var new_word : string := " "
+    for decreasing i : length (word) .. 1
+        new_word += word (i)
+    end for
+    result new_word
+end reversed_letter_order
+
+%Main program
+var word : string
+
+put "Please enter 'exit' to finish the program."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "exit"
+    put "When you reverse the order of the letters, the word becomes '", reversed_letter_order (word), "'."
+end loop
+
