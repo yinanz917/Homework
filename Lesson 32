@@ -1,0 +1,83 @@
+%Question 1
+%Function
+function length_in_meters (length_cm : real) : real
+    var length_m : real
+    const METERS := 100
+    length_m := length_cm / METERS
+    result length_m
+end length_in_meters
+
+%Main program
+var given_length : real
+
+put "Please enter a length in centimeters: " ..
+get given_length
+put "The length in meters is ", length_in_meters (given_length) : 0 : 2, " m."
+
+
+%Question 2
+%Function
+function area_of_triangle (height : real, base : real) : real
+    var area : real
+    area := (base * height) / 2
+    result area
+end area_of_triangle
+
+%Main Program
+put area_of_triangle (3, 20)
+
+
+%Question 3
+%Function
+function linear_equation (slope : real, y_intercept : real, x : real) : real
+    var y_value : real
+    y_value := (slope * x) + y_intercept
+    result y_value
+end linear_equation
+
+%Main program
+var slope : real
+var y_intercept : real
+var x : real
+
+put "Please enter a slope: " ..
+get slope
+put "Please enter a y-intercept: " ..
+get y_intercept
+put "To exit the program, please enter 0.5."
+loop
+    put "Please enter an x value: " ..
+    get x
+    exit when x = 0.5
+    put "The y-coordinate is ", linear_equation (slope, y_intercept, x), "."
+end loop
+put "Thanks for using our program :)"
+
+
+%Question 4
+%Function
+function replacing_vowel (letter : char) : char
+    var new_letter : char 
+    if index ("aeiouAEIOU", letter) not= 0 then
+        new_letter := "*"
+    else
+        new_letter := letter
+    end if
+    result new_letter
+end replacing_vowel
+
+%Main Program
+var new_word : string := " "
+var word : string
+
+put "Please enter a word: " ..
+get word
+for i : 1 .. length (word)
+    new_word += replacing_vowel (word (i)) 
+end for
+
+put "The new word is ", new_word,"."
+
+
+
+
