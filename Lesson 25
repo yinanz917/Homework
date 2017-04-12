@@ -1,5 +1,5 @@
 %Question 1
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Please enter a word: " ..
@@ -14,7 +14,7 @@ put new_word
 
 
 %Question 2
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Please enter a word: " ..
@@ -43,7 +43,7 @@ elsif length (word) mod 2 not= 0 then
 end if
 
 %Touque 5
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Please enter a word: " ..
@@ -59,7 +59,7 @@ put new_word
 
 
 %Touque 6
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Please enter a word: " ..
@@ -75,7 +75,7 @@ put new_word
 
 
 %Touque 7
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Please enter a word: " ..
