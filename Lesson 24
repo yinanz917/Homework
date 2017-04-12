@@ -15,7 +15,7 @@ end loop
 
 
 %Question 2
-Var longest_word : string := " "
+Var longest_word : string := ""
 var word : string
 var word_length : int := 0
 
