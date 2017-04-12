@@ -1,0 +1,143 @@
+%Question 1
+%Function
+function starts_s (word : string) : boolean
+    if word (1) = "s" or word (1) = "S" then
+        result true
+    else 
+        result false
+    end if
+end starts_s
+
+%Main program
+var startsS : boolean := false
+var word : string
+
+put "Please enter a word: " ..
+get word
+if starts_s (word) then
+    startsS := true
+    put "Your word starts with an 's'."
+else
+    put "Your word does not start with an 's'."
+end if
+
+
+%Question 2
+%Function
+function isMultiple7 (number : int) : boolean
+    if number mod 7 = 0 then
+        result true
+    else 
+        result false
+    end if
+end isMultiple7
+
+%Main Program
+if isMultiple7 (17) then
+    put "That integer is a multiple of 7."
+else
+    put "That integer is not a multiple of 7."
+end if
+
+
+%Question 3
+%Function 1
+function reversed_word (word : string) : string
+    var new_word : string := ""
+    for decreasing i  : length (word) .. 1
+        new_word += word (i)
+    end for
+    result new_word
+end reversed_word
+
+%Function 2
+function isPalindrome (word : string, reversed_word: string) : boolean
+    if word = reversed_word then
+        result true
+    else
+        result false
+    end if
+end isPalindrome
+
+%Main Program
+var new_word : string 
+var word : string
+
+put "Please enter a word: " ..
+get word
+new_word := reversed_word (word)
+if isPalindrome (word, new_word) then
+    put "That word is a palindrome."
+else
+    put "That word is not a palindrome."
+end if
+
+
+%Question 4
+%Function
+function double (number : real) : real
+    var doubled_number : real
+    doubled_number := number * 2
+    result doubled_number
+end double
+
+%Main program
+var doubled_number : real
+var number : real
+const MAX := 1000
+
+put "Please enter a number: " ..
+get number
+doubled_number := double (number)
+
+loop
+    exit when doubled_number > MAX
+    put doubled_number
+    doubled_number := double (doubled_number)
+end loop
+
+
+%Question 5
+%Function 1
+function glue_strings (string1 : string, string2 : string) : string
+    var glued_string : string
+    glued_string := string1 + string2
+    result glued_string
+end glue_strings
+
+%Function 2
+function reverse (glued_string : string) : string
+    var reversed_string : string := ""
+    for decreasing i : length (glued_string) .. 1
+        reversed_string += glued_string (i)
+    end for
+    result reversed_string
+end reverse
+
+%Function 3
+function glue_string3 (reversed_string : string, string3 : string) : string
+    var final_word : string
+    final_word := reversed_string + string3
+    result final_word
+end glue_string3
+
+%Main Program
+var word1, word2, word3 : string
+var glued_string : string
+var reversed_string : string
+var final_string : string
+
+put "Please enter a word: " ..
+get word1
+put "Please enter a word: " ..
+get word2
+put "Please enter a word: " ..
+get word3
+glued_string := glue_strings (word1, word2)
+reversed_string := reverse (glued_string)
+final_string := glue_string3 (reversed_string, word3)
+put final_string
+
+
+
+
