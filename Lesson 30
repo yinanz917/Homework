@@ -48,7 +48,7 @@ end loop
 
 %Textbook Q5
 var ascii_value : int
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Enter 'stop' to exit the program."
@@ -71,7 +71,7 @@ end loop
 
 
 %Textbook Q6
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Enter 'exit' to stop the program."
@@ -107,8 +107,8 @@ end loop
 
 %Textbook Q8
 var letter : char
-var new_word2 : string := " "
-var new_word3 : string := " "
+var new_word2 : string := ""
+var new_word3 : string := ""
 var number : int
 var replacement : string
 var total_amount_letters : int := 0
@@ -208,11 +208,11 @@ end loop
 
 
 %Textbook Q11
-var characters : string := " "
-var consonants : string := " "
-var numbers : string := " "
+var characters : string := ""
+var consonants : string := ""
+var numbers : string := ""
 var user_input : string
-var vowels : string := " "
+var vowels : string := ""
 
 put "To exit the program, please enter 'exit'."
 loop
@@ -242,7 +242,7 @@ end loop
 
 %Textbook Q13
 var letter : string
-var new_word : string := " "
+var new_word : string := ""
 var replacement : string
 var word : string
 
