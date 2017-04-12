@@ -46,7 +46,7 @@ end loop
 %Question 3
 %Function
 function reversed_letter_order (word : string) : string
-    var new_word : string := " "
+    var new_word : string := ""
     for decreasing i : length (word) .. 1
         new_word += word (i)
     end for
