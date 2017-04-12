@@ -67,7 +67,7 @@ function replacing_vowel (letter : char) : char
 end replacing_vowel
 
 %Main Program
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "Please enter a word: " ..
