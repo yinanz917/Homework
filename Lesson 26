@@ -1,5 +1,5 @@
 %Touque 7
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
@@ -17,7 +17,7 @@ put new_word
 
 
 %Touque 8
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
@@ -35,7 +35,7 @@ put new_word
 
 
 %Touque 9
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 const A := "a"
 const E := "e"
@@ -66,7 +66,7 @@ put new_word
 
 
 %Touque 10
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
@@ -85,7 +85,7 @@ put new_word
 
 
 %Touque 11
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
