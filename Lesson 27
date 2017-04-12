@@ -1,5 +1,5 @@
 %Touque 12
-var new_word : string := " "
+var new_word : string := ""
 var number : int
 var word : string
 
@@ -27,7 +27,7 @@ put new_word
 
 %Touque 13
 var first_half : int := 0
-var new_word : string := " "
+var new_word : string := ""
 var number : int
 var word : string
 
@@ -75,7 +75,7 @@ put new_word
 
 %Touque 14
 var first_half : int := 0
-var new_word : string := " "
+var new_word : string := ""
 var number : int
 var word : string
 
@@ -123,7 +123,7 @@ put new_word
 
 %Touque 15
 var first_half : int := 0
-var new_word : string := " "
+var new_word : string := ""
 var number : int
 var word : string
 
@@ -137,7 +137,7 @@ put word (*)
 
 %Touque 16
 var first_half : int := 0
-var new_word : string := " "
+var new_word : string := ""
 var number : int
 var word : string
 
@@ -154,7 +154,7 @@ put word (*)
 
 %Touque 17
 var first_half : int := 0
-var new_word : string := " "
+var new_word : string := ""
 var number : int
 var word : string
 
@@ -171,7 +171,7 @@ put word (*)
 
 %Question 1
 var word : string
-var first_word : string := " "
+var first_word : string := ""
 
 put "Please enter 'done' to exit the program."
 put "Please enter a word: " ..
@@ -190,7 +190,7 @@ put "The word '", first_word,"' is alphabetically first."
 
 %Question 1A
 var word : string
-var first_word : string := " "
+var first_word : string := ""
 
 put "Please enter 'done' to exit the program."
 put "Please enter a word: " ..
@@ -209,7 +209,7 @@ put "The word '", first_word,"' is alphabetically last."
 
 %Question 1B
 var word : string
-var first_word : string := " "
+var first_word : string := ""
 
 put "Please enter 'done' to exit the program."
 put "Please enter a word: " ..
@@ -230,7 +230,7 @@ put "The 7 letter word '", first_word, "' is alphabetically first."
 
 %Question 1C
 var word : string
-var first_word : string := " "
+var first_word : string := ""
 
 put "Please enter 'done' to exit the program."
 put "Please enter a word: " ..
@@ -251,7 +251,7 @@ put "The 3 letter word '", first_word, "' is alphabetically last."
 
 %Question 1D
 var length_of_word : int 
-var longest_word : string := " "
+var longest_word : string := ""
 var word : string
 
 put "Please enter 'done' to exit the program."
@@ -273,7 +273,7 @@ put "The longest word you entered was '", longest_word,"'."
 
 %Question 1E
 var length_of_word : int 
-var shortest_word : string := " "
+var shortest_word : string := ""
 var word : string
 
 put "Please enter 'done' to exit the program."
@@ -313,7 +313,7 @@ put "The average length of the words entered is ", ceil (average), " letters."
 
 %Question 2
 var letter : char
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "To exit the program, please enter 'done'."
@@ -335,7 +335,7 @@ end loop
 
 %Question 2A
 var letter : char
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "To exit the program, please enter 'done'."
@@ -357,7 +357,7 @@ end loop
 
 %Question 2B 
 var letter : string
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "To exit the program, please enter '123'."
@@ -378,7 +378,7 @@ end loop
     
 
 %Question 3
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "To exit the program please enter 'done'."
@@ -399,7 +399,7 @@ end loop
 
 
 %Question 3A
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "To exit the program please enter 'done'."
@@ -420,7 +420,7 @@ end loop
 
 
 %Question 3B
-var new_word : string := " "
+var new_word : string := ""
 var word : string
 
 put "To exit the program please enter 'done'."
@@ -441,7 +441,7 @@ end loop
 
 
 %Question 3C (FOLLOWING)
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
@@ -464,7 +464,7 @@ end loop
 
 
 %Question 3C (PREVIOUS)
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
@@ -487,7 +487,7 @@ end loop
 
 
 %Question 3D
-var new_word : string := " "
+var new_word : string := ""
 var number : int := 0
 var word : string
 
