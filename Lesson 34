@@ -1,0 +1,58 @@
+%Question 1
+%Procedure
+procedure repeat_word (word : string, number : int)
+    for i : 1 .. number
+        put word, " " ..
+    end for
+end repeat_word
+
+%Main Program
+repeat_word ("yiners", 7)
+
+
+%Question 2A
+%Procedure
+procedure stars (line_number : int)
+    for i : 1 .. line_number
+        put "*****"
+    end for
+end stars
+
+%Main Program
+stars (7)
+
+
+%Question 2B
+%Procedure
+procedure stars (line_number : int)
+    for i : 1 .. line_number
+        put "*****"
+    end for
+end stars
+
+%Main Program
+var number_of_lines : int
+put "Please enter an integer: " ..
+get number_of_lines
+stars (number_of_lines)
+
+
+%Question 3
+%Procedure
+procedure slants (line_number : int)
+    for i : 1 .. line_number - 2
+        for j : 1 .. i - 1
+            put " " ..
+        end for
+        put "*"
+    end for
+    for i : line_number - 1 .. line_number
+        for j : 1 .. i - (line_number -1)
+            put " " ..
+        end for
+        put "*"
+    end for
+end slants
+
+%Main Program
+slants (9)
