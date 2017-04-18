@@ -1,0 +1,186 @@
+%Question 1
+%Procedure
+procedure percents_ands (number_of_lines : int)
+    for decreasing i : number_of_lines .. 1
+        put repeat ("%", i) ..
+        put repeat ("&", i)
+    end for
+end percents_ands
+
+%Main Program
+percents_ands (5)
+
+
+%Question 2
+%Procedure
+procedure exclamations_ats (number_of_lines : int)
+    for i : 1 .. number_of_lines
+        put repeat ("!@", i) 
+    end for
+end exclamations_ats
+
+%Main Program
+exclamations_ats (4)
+
+
+%Question 3
+%Procedure
+procedure stars (number_of_lines : int)
+    for decreasing i : number_of_lines .. 1
+        for j : 1 .. number_of_lines - i 
+            put " " ..
+        end for
+        put repeat ("*", i)
+    end for
+end stars
+
+%Main Program
+stars (6)
+
+%Question 4
+%Function RectangleA
+function areaRectangle (base : real, height : real) : real
+    var total_area : real := 0
+    total_area := base * height
+    result total_area
+end areaRectangle
+
+%Function RectangleP
+function perimeterRectangle (base : real, height : real) : real
+    var total_perimeter : real := 0
+    total_perimeter := (2 * base) + (2 * height)
+    result total_perimeter
+end perimeterRectangle
+
+%Function TriangleA
+function areaTriangle (base : real, height : real) : real
+    var total_area : real := 0
+    total_area := (base * height) / 2
+    result total_area
+end areaTriangle
+
+%Function TriangleP
+function perimeterTriangle (side1, side2, side3 : real) : real
+    var total_perimeter : real := 0
+    total_perimeter := side1 + side2 + side3
+    result total_perimeter
+end perimeterTriangle
+
+%Function CircleA
+function areaCircle (radius : real) : real
+    var total_area : real := 0
+    const PI := 3.14
+    total_area := PI * (radius ** 2)
+    result total_area
+end areaCircle
+
+%Function CircleP
+function perimeterCircle (radius : real) : real
+    var total_perimeter : real := 0
+    const PI := 3.14
+    total_perimeter := PI * (radius * 2)
+    result total_perimeter
+end perimeterCircle
+
+%Main Program
+var area : boolean := true
+var areaorperimeter : string
+var base : real
+var height : real
+var shape : string
+var side1, side2, side3 : real
+var radius : real
+
+put "What shape would you like? (Triangle, Rectangle, or Circle) " ..
+get shape
+put "Would you like the area or perimeter of that shape? " ..
+get areaorperimeter
+if areaorperimeter = "perimeter" or areaorperimeter = "Perimeter" then
+    area := false
+end if
+
+case shape of
+    label "triangle", "Triangle" :
+        if area then
+            put "Please enter a height: " ..
+            get height
+            put "Please enter a base length: " ..
+            get base
+            put "The area is ", areaTriangle (base, height) : 0 : 2, "."
+        else
+            put "Please enter 3 side lengths (seperate with a space): " ..
+            get side1, side2, side3
+            put "The perimeter is ", perimeterTriangle (side1, side2, side3), "."
+        end if
+    label "circle", "Circle" :
+        put "Please enter a radius: " ..
+        get radius
+        if area then
+            put "The area of the circle is ", areaCircle (radius) : 0 : 2, "."
+        else
+            put "The perimeter of the circle is ", perimeterCircle (radius) : 0 : 2, "."
+        end if
+    label "rectangle", "Rectangle" :
+        put "Please enter a base length: " ..
+        get base
+        put "Please enter a height: " ..
+        get height
+        if area then
+            put "The area of the rectangle is ", areaRectangle (base, height), "."
+        else
+            put "The perimeter of the rectangle is ", perimeterRectangle (base, height), "."
+        end if
+    label :
+        put "Goodbye!"
+end case
+
+
+%Question 5 
+%Function
+function isArmstrong (number : int) : boolean
+    var sum : int := 0
+    for i : 1 .. length (intstr (number))
+        sum += strint (intstr(number)(i))** 3
+    end for
+    if sum = number then
+        result true
+    else
+        result false
+    end if
+end isArmstrong
+
+%Main Program
+var digits : int
+var number_as_string : string
+for i : 0 .. 10000
+    if isArmstrong (i) then
+        put i," is an armstrong number."
+    end if
+end for
+
+
+%Question 6
+%Function
+function isPalindrome (number : int) : boolean
+    var reversed_number : string := ""
+    var number_string : string := intstr (number)
+    
+    for decreasing i : length (number_string) .. 1
+        reversed_number += number_string (i)
+    end for
+    
+    if reversed_number = number_string then
+        result true
+    else
+        result false
+    end if
+end isPalindrome
+
+%Main Program
+for i : 1 .. 10000
+    if isPalindrome (i) then
+        put i
+    end if
+end for
+
+
