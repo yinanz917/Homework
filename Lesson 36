@@ -1,0 +1,165 @@
+%Question 1
+%Function 
+function is180 (angle1, angle2, angle3 : real) : boolean
+    if angle1 + angle2 + angle3 = 180 then
+        result true
+    else
+        result false
+    end if
+end is180
+
+%Procedure
+procedure classification (angle1, angle2, angle3 : real) 
+    if is180( angle1, angle2, angle3) then
+        if angle1 = angle2 and angle2 = angle3 then
+            put "This is an equilateral triangle."
+        elsif angle1 not= angle2 and angle2 not= angle3 then
+            put "This is a scalene triangle."
+        elsif angle1 = angle2 or angle1 = angle3 or angle2 = angle3 then
+            put "This is an isosceles triangle."
+        end if
+    else
+        put "The angles do not add up to 180 degrees. Sorry."
+    end if
+end classification
+
+%Main Program
+var angle1, angle2, angle3 : real
+
+put "Please enter 3 angles of a triangle (seperate with a space): " ..
+get angle1, angle2, angle3
+classification (angle1, angle2, angle3)
+
+
+%Question 2
+%Procedure
+procedure pattern (number : int) 
+    for i : 1 .. number
+        for j : 1 .. i
+            put i ..
+        end for
+        put " " ..
+    end for
+end pattern
+
+%Main Program
+var number : int
+
+put "Please enter a number: " ..
+get number
+pattern (number)
+
+
+%Question 3
+%Function
+function isOdd (width : int) : boolean
+    if width mod 2 = 0 then
+        result false
+    else 
+        result true
+    end if
+end isOdd
+
+%Procedure
+procedure make_T (width, Length : int)
+    if isOdd (width) then    
+        for i : 1 .. width
+            put "*" ..
+        end for
+        put " "
+        for i : 1 .. Length - 1
+           put repeat (" ", width div 2) ..
+           put "*"
+        end for
+     end if
+end make_T
+
+%Main Program
+var width, Length : int
+
+put "Please enter a width and length (seperate with space): " ..
+get width, Length
+make_T (width, Length)
+
+
+%Question 4
+%Function
+function isFactor (number1, number2 : int): boolean
+    if number2 mod number1 = 0 then
+        result true
+    else
+        result false
+    end if
+end isFactor
+
+%Main Program
+if isFactor (3, 15) then
+    put "It is a factor."
+else
+    put "It is not a factor."
+end if
+
+
+%Question 5
+%Function
+function remove_letter (word : string, letter : char) : string
+    var new_word : string := ""
+    for i : 1 .. length (word)
+        if index (letter, word (i)) = 0 then
+            new_word += word (i)
+        end if
+    end for
+    result new_word
+end remove_letter
+
+%Main Program
+var letter : char
+var word : string
+
+put "Please enter a word: " ..
+get word
+put "Please enter a letter found in that word (lowercase): " ..
+get letter
+put remove_letter (word, letter)
+
+
+%Question 6
+%Function 1
+function isOdd (input : string) : boolean
+    if length (input) mod 2 not= 0 then
+        result true
+    else
+        result false
+    end if
+end isOdd
+
+%Function 2
+function middle_char (input : string) : char
+    var middle : real
+    var middle_char : char
+    if isOdd (input) then
+        middle := (length (input) + 1) / 2
+        for i : 1 .. length (input)
+            if i = middle then
+                middle_char := input (i)
+            end if
+        end for
+    else
+        middle := length (input) / 2
+        for i : 1 .. length (input)
+            if i = middle then
+                middle_char := input (i)
+            end if
+        end for
+    end if
+    result middle_char
+end middle_char
+
+%Main Program
+var input : string
+
+put "Please enter a word: " ..
+get input
+put middle_char (input)
+
+
