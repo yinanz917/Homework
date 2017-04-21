@@ -1,0 +1,108 @@
+%Question 1
+import GUI
+
+var textfield1Label, textfield2Label : int
+var textfield1, textfield2 : int
+var quitButton : int
+
+procedure echoTextField (textFieldContents : string)
+    var message : string 
+    var number : real
+    var number_inches : real
+    const INCHES := 2.54
+    if strrealok (textFieldContents) then
+        number := strreal (textFieldContents)
+    end if
+    number_inches := number / INCHES
+    message := realstr (number, 4) + "cm = "+ realstr (number_inches, 4) + " inches."
+    GUI.SetText (textfield2, message)
+end echoTextField
+
+procedure setTextField (textFieldContent : string)
+    var number : string
+    var message : string
+    number := GUI.GetText (textfield1)
+    GUI.SetText (textfield2, message)
+end setTextField
+
+textfield1 := GUI.CreateTextField (10, 100, 200, "Enter a number", echoTextField)
+textfield2 := GUI.CreateTextField (10, 30, 200, "", setTextField)
+textfield1Label := GUI.CreateLabel (10, 100 + GUI.GetHeight (textfield1), "Centimetres")
+textfield2Label := GUI.CreateLabel (10, 30 + GUI.GetHeight (textfield2), "Inches")
+quitButton := GUI.CreateButton (300, 30, 50, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+        
+
+%Question 2
+import GUI
+
+var quitButton : int
+var textfield1, textfield2 : int
+var textfield1Label, textfield2Label : int
+
+procedure remove_vowels (fieldContent : string)
+    var new_word : string := ""
+    for i : 1 .. length (fieldContent)
+        if index ("aeiouAEIOU", fieldContent (i)) = 0 then
+            new_word += fieldContent (i)
+        end if
+    end for
+    GUI.SetText (textfield2, new_word)
+end remove_vowels
+
+procedure setTextField (fieldContent : string)
+    var new_word : string
+    new_word := GUI.GetText (textfield1)
+    GUI.SetText (textfield2, new_word)
+end setTextField
+
+quitButton := GUI.CreateButton (10, 50, 10, "Quit", GUI.Quit)
+textfield1 := GUI.CreateTextField (10, 200, 100, "Enter a word", remove_vowels)
+textfield2 := GUI.CreateTextField (10, 100, 100, "", setTextField)
+textfield1Label := GUI.CreateLabel (10, 200 + GUI.GetHeight (textfield1), "Original Word:")
+textfield2Label := GUI.CreateLabel (10, 100 + GUI.GetHeight (textfield2), "Word Without Vowels:")
+
+loop
+    exit when GUI.ProcessEvent
+end loop 
+
+
+%Question 3
+import GUI
+
+var quitButton : int
+var textfield1, textfield2 : int
+var textfield1Label, textfield2Label : int
+
+procedure next_number (fieldContent : string)
+    var new_number : string
+    var number : int
+    if strintok (fieldContent) then
+        number := strint (fieldContent)
+    end if
+    new_number := intstr (number + 1)
+    GUI.SetText (textfield2, new_number)
+end next_number
+
+procedure setTextField (fieldContent : string)
+    var output_number : string
+    output_number := GUI.GetText (textfield1)
+    GUI.SetText (textfield2, output_number)
+end setTextField
+
+quitButton := GUI.CreateButton (50, 50, 100, "Quit", GUI.Quit)
+textfield1 := GUI.CreateTextField (50, 300, 100, "Enter a number", next_number)
+textfield2 := GUI.CreateTextField (50, 200, 100, "", setTextField)
+textfield1Label := GUI.CreateLabel (50, 300 + GUI.GetHeight (textfield1), "Number")
+textfield2Label := GUI.CreateLabel (50, 200 + GUI.GetHeight (textfield2), "Next Number")
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+    
+
+
+
