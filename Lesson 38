@@ -20,9 +20,8 @@ end echoTextField
 
 procedure setTextField (textFieldContent : string)
     var number : string
-    var message : string
     number := GUI.GetText (textfield1)
-    GUI.SetText (textfield2, message)
+    GUI.SetText (textfield2, number)
 end setTextField
 
 textfield1 := GUI.CreateTextField (10, 100, 200, "Enter a number", echoTextField)
