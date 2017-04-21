@@ -1,0 +1,29 @@
+%Question 1
+import GUI
+
+procedure stars
+    put "********"
+end stars
+
+var MakeStarsButton : int := GUI.CreateButton (250, 100, 50, "Make STARS!", stars)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+
+
+%Question 2
+import GUI
+
+procedure stars
+    put "********"
+end stars
+
+var MakeStarsButton : int := GUI.CreateButton (250, 100, 50, "Make STARS!", stars)
+var quitButton : int := GUI.CreateButton (350, 100, 30, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+
+
