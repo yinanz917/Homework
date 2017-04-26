@@ -1,0 +1,79 @@
+import GUI
+
+var backButton1, backButton2 : int
+var buttonGuess : int
+var buttonGrowing : int
+var grow : int
+var quitButton : int
+
+View.Set ("graphics: 500; 500")
+Window.Set (defWinId, "title: Guessing Game and Growing Button")
+
+procedure GuessingGame
+    var number : int
+    var numberGuesses : int
+    var user_input : int
+    
+    GUI.Hide (buttonGuess)
+    GUI.Hide (buttonGrowing)
+    GUI.Hide (backButton2)
+    GUI.Show (backButton1)
+    GUI.SetPosition (backButton1, 350, 25)
+    put "Guess my number between 1 and 1000."
+    randint (number, 1, 1000)
+    loop
+        put "Guess: " ..
+        get user_input
+        exit when user_input = number  
+        if user_input > number then
+            colour (blue)
+            put "Lower"
+            colour (black)
+        elsif user_input < number then
+            colour (red)
+            put "Higher"
+            colour (black)
+        end if
+    end loop
+    put "Congratualtions! You guessed the number!"
+end GuessingGame
+
+procedure GrowingButton 
+    var numberClicks : int := 0
+    GUI.Hide (buttonGuess)
+    GUI.Hide (buttonGrowing)
+    GUI.Hide (backButton1)
+    GUI.Show (backButton2)
+    GUI.Show (grow)
+    GUI.SetPosition (backButton2, 350, 25)
+    GUI.SetSize (grow, 5 + GUI.GetWidth (grow), 5 + GUI.GetHeight (grow))
+end GrowingButton 
+
+procedure backGuessing
+    cls
+    GUI.Refresh
+    GUI.Hide (backButton1)
+    GUI.Hide (backButton2)
+    GUI.Show (buttonGuess)
+    GUI.Show (buttonGrowing)
+end backGuessing
+
+procedure backGrowing
+    GUI.Refresh
+    GUI.Hide (backButton2)
+    GUI.Hide (backButton1)
+    GUI.Hide (grow)
+    GUI.Show (buttonGuess)
+    GUI.Show (buttonGrowing)
+end backGrowing
+
+backButton1 := GUI.CreateButton (100, 300, 50, "Back", backGuessing)
+backButton2 := GUI.CreateButton (100, 300, 50, "Back", backGrowing)
+grow := GUI.CreateButton (100, 200, 50, "Click to Grow", GrowingButton)
+buttonGuess := GUI.CreateButton (100, 300, 50, "Guessing Game", GuessingGame)
+buttonGrowing := GUI.CreateButton (100, 200, 50, "Growing Button", GrowingButton)
+quitButton := GUI.CreateButton (50, 25, 20, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
