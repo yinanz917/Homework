@@ -1,0 +1,37 @@
+setscreen ("graphics")
+
+%face outline
+drawoval (300, 250, 70, 100, black)
+
+%eyes
+drawfilloval (283, 275, 14, 8, black)
+drawfilloval (350, 275, 14, 8, black)
+drawfilloval (283, 275, 12, 6, white)
+drawfilloval (350, 275, 12, 6, white)
+drawfilloval (286, 275, 5, 5, black)
+drawfilloval (353, 275, 5, 5, black)
+drawfilloval (288, 276, 2, 2, white)
+drawfilloval (355, 276, 2, 2, white)
+
+%nose
+drawline (320, 265, 335, 235, black)
+drawline (335, 235, 320, 227, black)
+
+%mouth
+drawfillarc (320, 203, 25, 20, 179, 20, black)
+drawfillarc (320, 201, 21, 16, 179, 20, red)
+
+%hair
+drawfillarc (285, 315, 70, 40, 45, 245, black)
+drawfillarc (217, 220, 15, 100, 90, 240, black)
+drawfillarc (220, 220, 15, 100, 90, 250, black)
+drawfillarc (225, 200, 15, 100, 90, 250, black)
+drawfillarc (235, 180, 15, 100, 90, 250, black)
+drawfillarc (245, 170, 15, 100, 90, 250, black)
+drawfillarc (245, 180, 10, 100, 250, 90, black)
+drawfillarc (250, 200, 10, 100, 250, 90, black)
+drawfillarc (260, 220, 5, 100, 250, 90, black)
+drawfillbox (215, 250, 260, 300, black)
+
+
+
