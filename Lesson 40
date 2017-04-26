@@ -1,6 +1,6 @@
 import GUI
 
-var backButton1, backButton2 : int
+var backButton : int
 var buttonGuess : int
 var buttonGrowing : int
 var grow : int
@@ -16,9 +16,8 @@ procedure GuessingGame
     
     GUI.Hide (buttonGuess)
     GUI.Hide (buttonGrowing)
-    GUI.Hide (backButton2)
-    GUI.Show (backButton1)
-    GUI.SetPosition (backButton1, 350, 25)
+    GUI.Hide (grow)
+    GUI.Show (backButton)
     put "Guess my number between 1 and 1000."
     randint (number, 1, 1000)
     loop
@@ -42,37 +41,27 @@ procedure GrowingButton
     var numberClicks : int := 0
     GUI.Hide (buttonGuess)
     GUI.Hide (buttonGrowing)
-    GUI.Hide (backButton1)
-    GUI.Show (backButton2)
+    GUI.Show (backButton)
     GUI.Show (grow)
-    GUI.SetPosition (backButton2, 350, 25)
     GUI.SetSize (grow, 5 + GUI.GetWidth (grow), 5 + GUI.GetHeight (grow))
 end GrowingButton 
 
-procedure backGuessing
-    cls
+procedure back
     GUI.Refresh
-    GUI.Hide (backButton1)
-    GUI.Hide (backButton2)
-    GUI.Show (buttonGuess)
-    GUI.Show (buttonGrowing)
-end backGuessing
-
-procedure backGrowing
-    GUI.Refresh
-    GUI.Hide (backButton2)
-    GUI.Hide (backButton1)
+    GUI.Hide (backButton)
     GUI.Hide (grow)
     GUI.Show (buttonGuess)
     GUI.Show (buttonGrowing)
-end backGrowing
+end back
 
-backButton1 := GUI.CreateButton (100, 300, 50, "Back", backGuessing)
-backButton2 := GUI.CreateButton (100, 300, 50, "Back", backGrowing)
-grow := GUI.CreateButton (100, 200, 50, "Click to Grow", GrowingButton)
-buttonGuess := GUI.CreateButton (100, 300, 50, "Guessing Game", GuessingGame)
-buttonGrowing := GUI.CreateButton (100, 200, 50, "Growing Button", GrowingButton)
+grow := GUI.CreateButton (175, 200, 50, "Click to Grow", GrowingButton)
+buttonGuess := GUI.CreateButton (50, 300, 50, "Guessing Game", GuessingGame)
+buttonGrowing := GUI.CreateButton (50, 200, 50, "Growing Button", GrowingButton)
 quitButton := GUI.CreateButton (50, 25, 20, "Quit", GUI.Quit)
+backButton := GUI.CreateButton (350, 25, 50, "Back", back)
+
+GUI.Hide (backButton)
+GUI.Hide (grow)
 
 loop
     exit when GUI.ProcessEvent
