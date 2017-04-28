@@ -10,7 +10,7 @@ var quitButton : int
 const GROW_W := 100
 const GROW_H := 15
 
-View.Set ("graphics: 500; 500")
+View.Set ("graphics: 500; 450")
 Window.Set (defWinId, "title: Guessing Game and Growing Button")
 
 procedure home
@@ -86,7 +86,7 @@ procedure CircleGame
 end CircleGame
 
 %Main Program
-grow := GUI.CreateButton (175, 200, 100, "Click to Grow", GrowingButton)
+grow := GUI.CreateButton (170, 150, 100, "Click to Grow", GrowingButton)
 growW := GUI.GetWidth (grow)
 growH := GUI.GetHeight (grow)
 buttonCircle := GUI.CreateButton (350, 50, 50, "Circle Game", CircleGame)
