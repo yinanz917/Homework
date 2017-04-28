@@ -1,0 +1,51 @@
+%Touque 2
+import GUI
+
+View.Set ("graphics: 500; 500")
+
+var x, y, buttonNumber, buttonUpDown : int
+var starVisible : boolean := false
+
+procedure drawStar
+    drawstar (100, 100, 400, 400, black)
+end drawStar
+
+%Main Program
+put "Please click on the screen"
+
+loop
+    Mouse.ButtonWait ("down",x, y, buttonNumber, buttonUpDown)
+    starVisible := not starVisible
+    if starVisible then
+        drawStar
+    else
+        cls
+        put "Please click on the screen"
+    end if
+end loop
+    
+
+%Touque 3
+import GUI
+
+View.Set ("graphics: 500; 500")
+
+var x, y, buttonNumber, buttonUpDown : int
+var starVisible : boolean := false
+
+procedure drawStar
+    var Colour : int
+    randint (Colour, 0, 255)
+    drawfillstar (100, 100, 400, 400, Colour)
+end drawStar
+
+%Main Program
+put "Please click on the screen"
+
+loop
+    Mouse.ButtonWait ("downup",x, y, buttonNumber, buttonUpDown)
+    starVisible := not starVisible
+    if starVisible then
+        drawStar
+    end if
+end loop
