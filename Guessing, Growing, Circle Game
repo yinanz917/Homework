@@ -5,10 +5,29 @@ var buttonCircle : int
 var buttonGuess : int
 var buttonGrowing : int
 var grow : int
+var growW, growH : int
 var quitButton : int
+const GROW_W := 100
+const GROW_H := 15
 
 View.Set ("graphics: 500; 500")
 Window.Set (defWinId, "title: Guessing Game and Growing Button")
+
+procedure home
+    growW := GROW_W
+    growH := GROW_H
+    GUI.Hide (backButton)
+    GUI.Hide (grow)
+    GUI.Show (buttonGuess)
+    GUI.Show (buttonGrowing)
+    GUI.Show (buttonCircle)
+    GUI.Show (quitButton)
+    GUI.SetSize (grow, growW, growH)
+    GUI.SetLabel (buttonCircle, "Circle Game")
+    GUI.SetPosition (buttonCircle, 350, 50)
+    cls
+    GUI.Refresh
+end home
 
 procedure GuessingGame
     var number : int
@@ -23,15 +42,15 @@ procedure GuessingGame
     randint (number, 1, 1000)
     loop
         put "Guess: " ..
-        get user_input
+        get user_input 
         exit when user_input = number  
         if user_input > number then
             colour (blue)
-            put "Lower"
+            put "Lower  " ..
             colour (black)
         elsif user_input < number then
             colour (red)
-            put "Higher"
+            put "Higher " .. 
             colour (black)
         end if
     end loop
@@ -44,7 +63,9 @@ procedure GrowingButton
     GUI.Hide (buttonCircle)
     GUI.Show (backButton)
     GUI.Show (grow)
-    GUI.SetSize (grow, 5 + GUI.GetWidth (grow), 5 + GUI.GetHeight (grow))
+    growW += 5
+    growH += 5
+    GUI.SetSize (grow, growW, growH)
 end GrowingButton 
 
 procedure CircleGame
@@ -54,39 +75,30 @@ procedure CircleGame
     GUI.Hide (buttonGrowing)
     GUI.Show (backButton)
     GUI.SetLabel (buttonCircle, "Random Circle!")
-    randint (x, 1, maxx)
-    randint (y, 1, maxy)
+    GUI.SetPosition (buttonCircle, 200, 150)
+    randint (x, 50, maxx - 50)
+    randint (y, 50, maxy - 50)
     randint (radius, 1, 250)
     randint (Colour, 1, 255)
+    cls
     drawfilloval (x, y, radius, radius, Colour)
     GUI.Refresh
 end CircleGame
 
-procedure back
-    cls
-    GUI.Refresh
-    GUI.Hide (backButton)
-    GUI.Hide (grow)
-    GUI.Show (buttonGuess)
-    GUI.Show (buttonGrowing)
-    GUI.Show (buttonCircle)
-    GUI.SetSize (grow, 50, 10)
-    GUI.SetLabel (buttonCircle, "Circle Game")
-end back
+%Main Program
+grow := GUI.CreateButton (175, 200, 100, "Click to Grow", GrowingButton)
+growW := GUI.GetWidth (grow)
+growH := GUI.GetHeight (grow)
+buttonCircle := GUI.CreateButton (350, 50, 50, "Circle Game", CircleGame)
+buttonGuess := GUI.CreateButton (200, 50, 50, "Guessing Game", GuessingGame)
+buttonGrowing := GUI.CreateButton (50, 50, 50, "Growing Button", GrowingButton)
+quitButton := GUI.CreateButton (50, 20, 20, "Quit", GUI.Quit)
+backButton := GUI.CreateButton (400, 20, 50, "Back", home)
 
-grow := GUI.CreateButton (175, 200, 50, "Click to Grow", GrowingButton)
-buttonCircle := GUI.CreateButton (350, 100, 50, "Circle Game", CircleGame)
-buttonGuess := GUI.CreateButton (200, 100, 50, "Guessing Game", GuessingGame)
-buttonGrowing := GUI.CreateButton (50, 100, 50, "Growing Button", GrowingButton)
-quitButton := GUI.CreateButton (50, 25, 20, "Quit", GUI.Quit)
-backButton := GUI.CreateButton (350, 25, 50, "Back", back)
-
-GUI.Hide (backButton)
-GUI.Hide (grow)
+home
 
 loop
     exit when GUI.ProcessEvent
 end loop
-
 
 
