@@ -1,0 +1,43 @@
+import GUI
+
+var clearButton, outputButton, quitButton : int
+var fileNumber : int
+var fileName : string
+var line : string
+var textfield, textfieldLabel : int
+
+procedure clear
+    cls
+    GUI.Refresh
+end clear
+
+procedure outputFile
+    fileName := GUI.GetText (textfield)
+
+    open : fileNumber, fileName, get
+    if fileNumber > 0 then
+        loop
+            exit when eof (fileNumber)
+            get : fileNumber, line : *
+            put line
+        end loop
+    else
+        put "File not Found"
+    end if
+end outputFile
+
+procedure dummy (textFieldContents : string)
+end dummy
+
+%Main Program
+clearButton := GUI.CreateButton (450, 50, 50, "Clear Screen", clear)
+outputButton := GUI.CreateButton (325, 50, 50, "Open File", outputFile)
+quitButton := GUI.CreateButton (50, 50, 50, "Quit", GUI.Quit)
+textfield := GUI.CreateTextField (150, 50, 150, "", dummy)
+textfieldLabel := GUI.CreateLabel (150, 50 + GUI.GetHeight (textfield), "Enter a file name:")
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+
+
