@@ -1,0 +1,65 @@
+%Var 1
+var buttonNumber, buttonUpDown : int
+var x, y, button : int
+
+%Main Program
+put "DRAWING TIME!"
+
+loop
+    Mouse.Where (x, y, button)
+    if button = 0 then
+        drawfilloval (x, y, 5, 5, black)
+    end if
+end loop
+
+
+%Var 2
+var buttonNumber, buttonUpDown : int
+var x, y, button : int
+
+%Main Program
+put "DRAWING TIME!"
+
+loop
+    if Mouse.ButtonMoved ("downup") then
+        Mouse.Where (x, y, button)
+        drawfilloval (x, y, 5, 5, black)
+    end if
+end loop
+
+
+%Var 3
+var buttonNumber, buttonUpDown : int
+var x, y, button : int
+
+%Main Program
+put "DRAWING TIME!"
+
+loop
+    if Mouse.ButtonMoved ("down") then
+        Mouse.Where (x, y, button)
+        drawfilloval (x, y, 5, 5, black)
+    end if
+    exit when Mouse.ButtonMoved ("up")
+end loop
+
+
+%Var 4
+var buttonNumber, buttonUpDown : int
+var x, y, button : int
+
+%Main Program
+put "DRAWING TIME!"
+
+loop
+    Mouse.ButtonWait ("up", x, y, buttonNumber, buttonUpDown)
+    loop
+        if Mouse.ButtonMoved ("down") then
+            Mouse.Where (x, y, button)
+            drawfilloval (x, y, 5, 5, black)
+        end if
+        exit when Mouse.ButtonMoved ("up")
+    end loop
+end loop
+
+
