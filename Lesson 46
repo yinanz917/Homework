@@ -1,0 +1,60 @@
+%Question 1A
+var tempList : array 1 .. 10 of real
+const DAYS := 10
+
+for i : 1 .. DAYS
+    put "What was the temperature on Day ", i, "? " ..
+    get tempList (i)
+end for
+
+put "The temperatures in reverse order are: " 
+for decreasing i : DAYS .. 1
+    put "Day ", i, " - ", tempList (i)
+end for
+
+
+
+%Question 1B
+var average : real := 0
+var tempList : array 1 .. 10 of real
+const DAYS := 10
+
+for i : 1 .. DAYS
+    put "What was the temperature on Day ", i, "? " ..
+    get tempList (i)
+end for
+
+for i : 1 .. DAYS
+    average += tempList (i)
+end for
+
+average /= DAYS
+
+put "The average temperature was ", average
+
+
+%Question 1C
+var day : int
+var highest : real
+var tempList : array 1 .. 10 of real
+const DAYS := 10
+
+for i : 1 .. DAYS
+    put "What was the temperature on Day ", i, "? " ..
+    get tempList (i)
+end for
+
+highest := tempList (1)
+day := 1
+
+for i : 2 .. DAYS
+    if tempList (i) > highest then
+        highest := tempList (i)
+        day := i
+    end if
+end for
+
+colour (red)
+put "On day ", day,", it had the highest temperature of ", highest
+
+
