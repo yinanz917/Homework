@@ -1,0 +1,72 @@
+%Question 1
+var item : array 1 .. 10 of string
+var itemAmount : array 1 .. 10 of int
+var user_input : string
+
+for i : 1 .. 10
+    get item (i) : *
+    get itemAmount (i)
+end for
+
+get user_input : *
+
+for i : 1 .. 10
+    if user_input = item (i) then
+        put "We have ", itemAmount (i)," ", item (i),"s in inventory."
+    end if
+end for
+
+
+%Question 3
+var roll : array 1 .. 50 of int
+var sum : array 2 .. 12 of int
+var roll1, roll2 : int
+var user_input : int
+
+for i : 1 .. 50
+    randint (roll1, 1, 6)
+    randint (roll2, 1, 6)
+    if i = 1 then
+        for j : 2 .. 12
+            sum (j) := 0
+        end for
+    end if
+    sum (roll1 + roll2) += 1
+    roll (i) := roll1 + roll2
+end for
+
+put "What roll are you interested in? ( 1 to 50 ) " ..
+get user_input
+
+for i : 1 .. 50
+    if user_input = i then
+        put "You rolled a sum of ", roll (i), " on that roll."
+        put "Out of 50 rolls, you rolled ", sum (roll (i)), " sums of ", roll (i), "."
+    end if
+end for
+
+
+INVENTORY LIST
+Pencil 
+10
+Eraser
+13
+Notebook
+23
+Pen
+16
+Highlighter
+7
+Tape
+11
+Glue
+19
+Marker
+28
+Crayons
+3
+Whiteout
+9
+Highlighter
+
+
