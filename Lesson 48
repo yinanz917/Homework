@@ -1,0 +1,43 @@
+%Question 2
+var count : int
+get count
+
+var list : array 1 .. count of string
+var sorted : array 1 .. count of string
+var where : int
+var current_first : string
+var last : string
+
+for i : 1 .. count
+    get list (i) 
+end for
+
+last := list (1)
+
+for i : 2 .. count
+    if list (i) > last then
+        last := list (i)
+    end if
+end for
+
+for i : 1 .. count 
+    current_first := list (1)
+    for j : 1 .. count 
+        if list (j) <= current_first then
+            current_first := list (j)
+            where := j
+        end if
+    end for
+    sorted (i) := current_first
+    list (where) := chr (127)
+end for
+
+colour (red)
+put "Here's the ", count," words in alphabetical order: " 
+for i : 1 .. count
+    colour (black)
+    put sorted (i)
+end for
+
+
+
