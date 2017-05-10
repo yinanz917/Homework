@@ -40,4 +40,44 @@ for i : 1 .. count
 end for
 
 
+%Extra Question
+var count : int
+get count
+
+var list : array 1 .. count of int
+var sorted : array 1 .. count of int
+var amount_in_sorted : int := 0
+
+function isNotDuplicate (number : int) : boolean
+    for j : 1 .. amount_in_sorted
+        if number = list (j) then
+            result false
+        end if
+    end for
+    result true
+end isNotDuplicate
+
+for i : 1 .. count
+    get list (i)
+end for
+
+sorted (1) := list (1)
+amount_in_sorted += 1
+
+for i : 2 .. count
+    if isNotDuplicate (list (i)) then
+        amount_in_sorted += 1
+        sorted (amount_in_sorted) := list (i)
+    end if
+end for
+
+for i : 1 .. amount_in_sorted
+    put sorted (i)
+end for
+
+
+
+
+
+
 
