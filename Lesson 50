@@ -5,7 +5,6 @@ get count
 var list : array 1 .. count of int
 var current_smallest : int
 var where : int
-var current_number : int
 
 for i : 1 .. count
     get list (i)
@@ -13,7 +12,6 @@ end for
 
 current_smallest := list (1)
 for i : 1 .. count
-    current_number := list (i)
     current_smallest := list (i)
     for j : i .. count
         if list (j) <= current_smallest then
@@ -21,12 +19,10 @@ for i : 1 .. count
             where := j
         end if
     end for
+    list (where) := list (i)
     list (i) := current_smallest
-    list (where) := current_number
 end for
 
 for i : 1 .. count
     put list (i)
 end for
-
-
