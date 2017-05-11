@@ -1,0 +1,108 @@
+Activity 1
+put “Hello, world!
+Hello, world!
+
+Activity 2
+put "Hello"
+put "there."
+Hello
+there.
+put "Hello" ..
+put "there."
+Hellothere.
+put "Hello " ..
+put "there."
+Hello there.
+put "Hello" + "there."
+	Hellothere.
+put "Hello " + "there."
+	Hello there.
+put "Hello", "there."
+	Hellothere.
+put "Hello ", "there."
+	Hello there.
+
+Activity 3
+With %
+% This program outputs your name and
+% address.
+put "Victoria Windsor"
+put "My address is 15 Wallingford Road"
+put "Toronto, Ontario M3A 2V1"
+Victoria Windsor
+My address is 15 Wallingford Road
+Toronto, Ontario M3A 2V1
+
+Without %
+Error, doesn’t work
+
+Activity 4
+Step 1
+% The first output line is used to
+% mark column numbers.
+put "123456789*123456789*123456789*"
+put "Go, Panthers! Go!"
+put "I love Turing!"
+put " 376"
+123456789*123456789*123456789*
+Go, Panther! Go!
+I love Turing!
+ 376
+-are left justified
+
+Step 2
+% The first output line is used to
+% mark column numbers.
+put "123456789*123456789*123456789*"
+put 376
+put 376 : 7
+put 376 : 10
+123456789*123456789*123456789*
+376
+        376
+	  376
+1. numeric data is left justified
+2. The output of an integer that’s followed by a colon and another integers causes the the integer to take up the amount of spaces listed after the colon.
+
+Step 3
+% The first output line is used to
+% mark column numbers.
+put "123456789*123456789*123456789*"
+put "Money" : 10
+put "Money" : 15
+123456789*123456789*123456789*
+Money
+Money
+
+Nothing happened, the string “money” ended up as it would normally
+
+Step 4
+% The first output line is used to
+% mark column numbers.
+put "123456789*123456789*123456789*"
+put "Go, Panthers! Go!"
+put "Money" , "is the root of all evil."
+put "Money " , "is the root of all evil."
+put "Money" , " is the root of all evil."
+put "Money " , 376
+put "Money" , 376
+put "Money" , 376 : 7
+put "Money" , 376 : 7 : 2
+123456789*123456789*123456789*
+Go, Panthers! Go!
+Moneyis the root of all evil.
+Money is the root of all evil.
+Money is the root of all evil.
+Money 376
+Money376
+Money    376
+Money  376.00
+
+Step 5
+
+
+
+
+
+
+
