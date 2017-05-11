@@ -1,0 +1,72 @@
+%Touque 7
+var radius : int
+var circum : real := 0
+var area : real := 0
+
+put "What is the radius of a circle with a diameter of 12m?"..
+get radius
+circum += radius*2*3.14
+area += radius*radius*3.14
+put "The circumference is ",circum," m and the area is ",area," m squared."
+
+%Touque 8
+get integer1
+put "What is your age?"..
+get integer2
+sum := integer1+integer2
+difference := integer1-integer2
+product := integer1*integer2
+quotient := integer1/integer2
+put "The sum of the two integers is ",sum,"."
+put "The difference of the two integers is ",difference,"."
+put "The product of the two integers is ",product,"."
+put "The quotient of the two integers is ",quotient,"."
+
+%Touque 9
+var price : real
+var PST : real := 0
+var GST : real := 0
+var total : real := 0
+
+put "How much did that sweater cost?"..
+get price
+PST += price*0.08
+GST += price*0.05
+total += price+PST+GST
+put "The total cost of your sweater after 8% PST and 5% GST is ",total:0:2,"."
+
+%Touque 10
+var integer1 : int
+var integer2 : int
+var sum : int
+var difference : int
+var product : int
+var quotient : real
+
+put "What is your favourite number?"..
+get integer1
+put "What is your age?"..
+get integer2
+sum := integer1+integer2
+difference := integer1-integer2
+product := integer1*integer2
+quotient := integer1/integer2
+put "The sum of the two integers is ",sum,"."
+put "The difference of the two integers is ",difference,"."
+put "The product of the two integers is ",product,"."
+put "The quotient of the two integers is ",quotient:0:2,"."
+
+%Question 2
+var area : int
+var side : real := 0
+var perimeter : int
+
+put "Give me an square between 1 and 100."..
+get area 
+side += sqrt(area)
+put "The side length of that number as an area of a square is ",side,"."
+side *= 4
+put "The perimeter of the square is ",side,"."
+
+
+
