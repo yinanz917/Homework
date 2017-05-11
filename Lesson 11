@@ -1,0 +1,67 @@
+%Touque 1
+var inches : real
+var cm : real
+put "How tall are you in inches?"..
+get inches
+cm := inches * 2.54
+put "You are " , cm : 0 : 2 , " cm tall."
+
+%Touque 3
+var birth : int
+var age : int
+put "What year were you born?"..
+get birth
+age := 2016-birth
+put "You are " , age , " years old."
+
+%Touque 4
+var start : int
+var ending : int
+var distance : int
+var speed : real
+put "When did you start the race?"..
+get start
+put "When did you finish it?"..
+get ending
+put "What distance did you run?"..
+get distance
+speed := (ending-start)/distance
+put "Your average speed is ",speed,"km/h."
+
+%Touque 5
+var name : string
+var address : string
+var city : string
+var province : string
+var postal : string
+var mailing : string
+put "What is your full name?"..
+get name : *
+put "What is your street address?"..
+get address : *
+put "What city do you live in?"..
+get city : *
+put "What province is that city in?"..
+get province : *
+put "What is your postal code?"..
+get postal : *
+mailing := name+", "+address+", "+city+", "+province+", "+postal+"."
+put "Your mailing address is ",mailing,"."
+
+%Touque 6
+var name1 : string
+var name2 : string
+var name3 : string
+var name4 : string
+var name5 : string
+put "What is the oldest member of your family's name?"..
+get name1 : *
+put "What is the 2nd oldest member of your family's name?"..
+get name2 : *
+put "What is the 3rd oldest member of your family's name?"..
+get name3 : *
+put "What is the 4th oldest member of your family's name?"..
+get name4 : *
+put "What is the youngest member of your family's name?"..
+get name5 : *
+put "Your family from youngest to oldest is ",name5,", ",name4,", ",name3,", ",name2,", ",name1,"."
